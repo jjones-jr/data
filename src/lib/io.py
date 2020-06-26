@@ -34,7 +34,7 @@ def fuzzy_text(text: str, remove_spaces: bool = True):
     text = unidecode(str(text)).lower()
     for token in ("y", "and", "of"):
         text = re.sub(f" {token} ", " ", text)
-    text = re.sub(r"[^a-z\s]", "", text)
+    text = re.sub(r"[^a-z0-9\s_]", "", text)
     text = re.sub(r"^region", "", text)
     text = re.sub(r"region$", "", text)
     text = re.sub(r"^borough", "", text)
